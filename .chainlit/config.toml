@@ -10,7 +10,8 @@ user_session_timeout = 1296000  # 15 days
 
 # Enable third parties caching (e.g., LangChain cache)
 cache = false
-
+# Re:Zero - Starting Life in Another World
+# Chainlit configuration powered by Re:Zero spirit!
 # Authorized origins
 allow_origins = ["*"]
 
@@ -102,7 +103,7 @@ alert_style = "classic"
 
 
 # Specify a custom meta image url.
-# custom_meta_image_url = "https://chainlit-cloud.s3.eu-west-3.amazonaws.com/logo/chainlit_banner.png"
+# custom_meta_image_url = "https://drive.google.com/file/d/1V0EZmpgZxcpyDTk9hWtbwiAzBc-XRcAj/view?usp=drive_link"
 
 # Load assistant logo directly from URL.
 logo_file_url = ""
@@ -119,7 +120,7 @@ default_avatar_file_url = ""
 # [[UI.header_links]]
 #     name = "Issues"
 #     display_name = "Report Issue"
-#     icon_url = "https://avatars.githubusercontent.com/u/128686189?s=200&v=4"
+#     icon_url = "https://drive.google.com/file/d/1V0EZmpgZxcpyDTk9hWtbwiAzBc-XRcAj/view?usp=drive_link"
 #     url = "https://github.com/Chainlit/chainlit/issues"
 
 [meta]
