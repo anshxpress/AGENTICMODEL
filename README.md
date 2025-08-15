@@ -73,9 +73,10 @@ cd ai-agent
 ### 2. Create a virtual environment
 
 ```bash
-python -m venv venv
 # Windows:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 venv\Scripts\activate
+chainlit run main.py      
 # macOS/Linux:
 source venv/bin/activate
 ```
