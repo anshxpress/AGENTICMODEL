@@ -1,2 +1,11 @@
 openai
-chainlit
+phldata
+duckdb
+yfinance
+httpx
+sqlalchemy
+pgvector
+psycopg
+psycopg2-binary
+psycopg2-binary
+pypdf
