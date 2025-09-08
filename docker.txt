@@ -1,0 +1,124 @@
+# Docker Commands for AgenticModel
+
+## Build and Run Commands:
+
+# Build the Docker image
+docker build -t agenticmodel .
+
+# Run the container with Gemini API key
+docker run -p 8000:8000 -e GOOGLE_API_KEY=AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg agenticmodel
+
+# Run with volume for file uploads
+docker run -p 8000:8000 -e GOOGLE_API_KEY=AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg -v $(pwd)/uploads:/app/uploads agenticmodel
+
+## Using Docker Compose:
+
+# Create .env file first with your API key:
+echo "GOOGLE_API_KEY=AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg" > .env
+
+# Build and run with docker-compose
+docker-compose up --build
+
+# Run in background
+docker-compose up -d
+
+# Stop the service
+docker-compose down
+
+## Useful Commands:
+
+# View logs
+docker logs <container_id>
+
+# Access container shell
+docker exec -it <container_id> /bin/bash
+
+# Remove all containers and images
+docker system prune -a
+
+# List running containers
+docker ps
+
+# List all containers
+docker ps -a
+
+# Remove specific container
+docker rm <container_id>
+
+# Remove specific image
+docker rmi agenticmodel
+
+## Individual Component Testing:
+
+# Run finance assistant
+docker run -e GOOGLE_API_KEY=AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg agenticmodel python finance.py
+
+# Run data analyst
+docker run -e GOOGLE_API_KEY=AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg agenticmodel python data_analyst.py
+
+# Run instruction-based AI
+docker run -e GOOGLE_API_KEY=AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg agenticmodel python instruction.py
+
+# Run movie assistant
+docker run -e GOOGLE_API_KEY=AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg agenticmodel python movieassisstant.py
+
+# Run news workflow
+docker run -e GOOGLE_API_KEY=AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg agenticmodel python hackernews.py
+
+## Production Deployment:
+
+# Tag image for production
+docker tag agenticmodel:latest agenticmodel:v1.0
+
+# Save image to file
+docker save agenticmodel:latest > agenticmodel.tar
+
+# Load image from file
+docker load < agenticmodel.tar
+
+# Push to registry (replace with your registry)
+docker tag agenticmodel:latest your-registry/agenticmodel:latest
+docker push your-registry/agenticmodel:latest
+
+## Environment Variables:
+
+# Required environment variables:
+- GOOGLE_API_KEY: Your Gemini API key
+- PORT: Application port (default: 8000)
+
+# Optional environment variables:
+- DEBUG: Set to 'true' for debug mode
+- LOG_LEVEL: Set log level (INFO, DEBUG, ERROR)
+
+## Troubleshooting:
+
+# Check container logs
+docker logs -f <container_name>
+
+# Debug container startup
+docker run -it agenticmodel /bin/bash
+
+# Check port binding
+netstat -tulpn | grep :8000
+
+# Test container connectivity
+curl http://localhost:8000
+
+## Multi-Stage Build (Advanced):
+
+# If using multi-stage builds, use:
+docker build --target production -t agenticmodel:prod .
+
+## Notes:
+- Replace 'AIzaSyDCe2Dw7a6Eb-WXSS_SPx_5_oeCNepLIyg' with your actual Gemini API key
+- The main app will be available at http://localhost:8000
+- Uploaded files are stored in the uploads directory
+- FFmpeg is included for audio processing support
+- All AI assistants use Gemini 2.0 Flash model
+- PostgreSQL setup required for RAG assistant functionality
+
+## Security Notes:
+- Never commit API keys to version control
+- Use environment variables or Docker secrets for API keys
+- Consider using .env file for local development
+- Use proper secrets management in production

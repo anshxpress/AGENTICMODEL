@@ -34,7 +34,7 @@ def image2base64(image_path):
         encoded_string = base64.b64encode(img.read())
     return encoded_string.decode("utf-8")
 
-# ❌ Gemini does NOT have Whisper. For audio transcription,
+# Gemini does NOT have Whisper. For audio transcription,
 # you’d need to use Google Speech-to-Text API.
 def audio_process(audio_path):
     return "Audio transcription via Google Speech-to-Text API needed here."
