@@ -66,7 +66,7 @@ AI_Agent/
 ### 1. Clone this repository
 
 ```bash
-git clone https://github.com/your-username/ai-agent.git
+git clone https://github.com/your-username/AGENTICMODEL.git
 cd ai-agent
 ```
 
